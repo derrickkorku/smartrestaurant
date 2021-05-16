@@ -27,15 +27,21 @@ Route::get('/', function () {
 
 Route::get('/admin/dashboard', Dashboard::class)->name('admin.dashboard');
 
+Route::get('/w/menu', WaitressMenu::class)->name('waitress.menu');
+Route::get('/k/orders', Orders::class)->name('kitchen.orders');
 
-Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-    Route::get('/w/menu', WaitressMenu::class)->name('waitress.menu');
-    Route::get('/k/orders', Orders::class)->name('kitchen.orders');
+Route::get('/admin/menu-category', MenuCategory::class)->name('admin.menu-category');
+Route::get('/admin/menu', Menu::class)->name('admin.menu');
+Route::get('/admin/account', Account::class)->name('admin.account');
 
-    Route::get('/admin/menu-category', MenuCategory::class)->name('admin.menu-category');
-    Route::get('/admin/menu', Menu::class)->name('admin.menu');
-    Route::get('/admin/account', Account::class)->name('admin.account');
-});
+// Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+//     Route::get('/w/menu', WaitressMenu::class)->name('waitress.menu');
+//     Route::get('/k/orders', Orders::class)->name('kitchen.orders');
+
+//     Route::get('/admin/menu-category', MenuCategory::class)->name('admin.menu-category');
+//     Route::get('/admin/menu', Menu::class)->name('admin.menu');
+//     Route::get('/admin/account', Account::class)->name('admin.account');
+// });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

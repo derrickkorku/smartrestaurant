@@ -39,8 +39,8 @@ class MenusTableSeeder extends Seeder
             ['id' => 19, 'name' => 'D.1 Grilled Tilapia (Fresh Grrinded Pepper)', 'menu_category_id' => 4, 'price' => 55],
             ['id' => 20, 'name' => 'D.2 Okro Soup with Crab/Fish Beef/Goat Meat', 'menu_category_id' => 4, 'price' => 53],
             ['id' => 21, 'name' => 'D.3 Okro Stew (Fish/Beef/Goat Meat)', 'menu_category_id' => 4, 'price' => 53],
-            ['id' => 22, 'name' => 'D.4 Goat Soup with Fufu', 'menu_category_id' => 4, 'price' => 53],
-            ['id' => 23, 'name' => 'D.5 Palmnut Soup(Beef/Goat Meat/Fish)', 'menu_category_id' => 3, 'price' => 53],
+            ['id' => 22, 'name' => 'D.4 Goat Soup', 'menu_category_id' => 4, 'price' => 53],
+            ['id' => 23, 'name' => 'D.5 Palmnut Soup(Beef/Goat Meat/Fish)', 'menu_category_id' => 4, 'price' => 53],
             ['id' => 24, 'name' => 'D.6 Duck Groundnut', 'menu_category_id' => 4, 'price' => 53],
             ['id' => 25, 'name' => 'D.7 Red Red with Fish/Chicken/Beef', 'menu_category_id' => 4, 'price' => 53], ['id' => 26, 'name' => 'D.8 Palava Sauce(Fish/Chicken/Beef)', 'menu_category_id' => 4, 'price' => 53],
             ['id' => 27, 'name' => 'D.9 Garden Egg Stew (Fish/Chicken/Beef)', 'menu_category_id' => 4, 'price' => 53],
@@ -82,7 +82,6 @@ class MenusTableSeeder extends Seeder
             ['id' => 59, 'name' => 'Acheke', 'menu_category_id' => 9, 'price' => 0],
             ['id' => 60, 'name' => 'French Fries', 'menu_category_id' => 9, 'price' => 0],
             ['id' => 61, 'name' => 'Potato Saute', 'menu_category_id' => 9, 'price' => 0],
-            ['id' => 62, 'name' => 'Fried or Boiled Plantain/Yam', 'menu_category_id' => 9, 'price' => 0],
 
             ['id' => 63, 'name' => "C.S latante's Chicken Sandwich", 'menu_category_id' => 10, 'price' => 20],
             ['id' => 64, 'name' => 'T.S Tuna Sandwich', 'menu_category_id' => 10, 'price' => 20],
@@ -170,6 +169,11 @@ class MenusTableSeeder extends Seeder
 
             ['id' => 138, 'name' => 'Savanah Dry', 'menu_category_id' => 19, 'price' =>20],
             ['id' => 139, 'name' => 'Red Bull', 'menu_category_id' => 19, 'price' =>20],
+
+            ['id' => 140, 'name' => 'Boiled Plantain', 'menu_category_id' => 9, 'price' => 0],
+            ['id' => 141, 'name' => 'Boiled Yam', 'menu_category_id' => 9, 'price' => 0],
+            ['id' => 142, 'name' => 'Fried Plantain', 'menu_category_id' => 9, 'price' => 0],
+            ['id' => 143, 'name' => 'Fried Yam', 'menu_category_id' => 9, 'price' => 0],
         ]);
     }
 }
