@@ -18,7 +18,6 @@ class CreateMenusTable extends Migration
             $table->string('name');
             $table->foreignId('menu_category_id')->index();
             $table->decimal('price', 10,2)->default(0);
-            $table->integer('quantity')->default(0);
             $table->timestamps();
         });
     }

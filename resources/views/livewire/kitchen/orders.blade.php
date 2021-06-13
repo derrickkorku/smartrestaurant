@@ -22,12 +22,6 @@
                         @endforelse
                     </ul>
                 </div>
-                <div class="card-footer">
-                    <audio autoplay loop>
-                        <source src="{{ asset('files/zen.mp3') }}" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                    </audio>
-                </div>
             </div>
         </div>
         <div class="col-sm-4">

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Waitress;
 
 use App\Models\MenuCategory;
+use App\Models\Inventory;
 use App\Models\Order;
 use App\Models\OrderDetails;
 use Livewire\Component;
@@ -19,12 +20,13 @@ class WaitressMenu extends Component
 
     public function addOrder($menu, $is_food = 1,  $sd = null){
         \Cart::add([
-            'id' => $menu['id'],
-            'name' => $sd ? $menu['name']. ' + '. $sd['name'] : $menu['name'],
+            'id' => $name = $sd ? $menu['name']. ' + '. $sd['name'] : $menu['name'],
+            'name' => $name,
             'price' => $menu['price'],
             'quantity' => 1,
             'attributes' => [
-                'is_food' => $is_food
+                'is_food' => $is_food,
+                'menu_id' => $menu['id']
             ]
         ]);
 
@@ -35,21 +37,21 @@ class WaitressMenu extends Component
         $this->cart_count = \Cart::getContent()->count();
     }
 
-    public function increaseItem($id){
-        \Cart::update($id, [
+    public function increaseItem($order){
+        \Cart::update(''.$order['id'], [
             'quantity' => 1
         ]);
     }
 
-    public function decreaseItem($id){
-        \Cart::update($id, [
+    public function decreaseItem($order){
+        \Cart::update(''.$order['id'], [
             'quantity' => -1
         ]);
     }
 
 
-    public function removeItem($id) {
-        \Cart::remove($id);
+    public function removeItem($order) {
+        \Cart::remove(''.$order['id']);
         $this->setCartCount();
     }
 
@@ -76,12 +78,18 @@ class WaitressMenu extends Component
         foreach(\Cart::getContent() as $order) {
             $order_details[] = [
                 'order_id' => $main_order->id,
-                'menu_id' => $order['id'],
+                'menu_id' => $order['attributes']['menu_id'],
                 'title' => $order['name'],
                 'quantity' => $order['quantity'],
                 'is_food' => $order['attributes']['is_food'],
                 'total' => $order['quantity'] * $order['price']
             ];
+
+            if (! $order['attributes']['is_food']) {
+                $inventory = Inventory::whereMenuId($order['id'])->latest()->first();
+                $inventory->current_stock = $inventory->starting_stock - $order['quantity'];
+                $inventory->save();
+            }
 
         }
 
@@ -118,6 +126,6 @@ class WaitressMenu extends Component
             'drinks' => $drinks,
             'foods' => $foods,
             'side_dish' => $side_dish
-        ])->layout('layouts.waitress');
+        ]);
     }
 }

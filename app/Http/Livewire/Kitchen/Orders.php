@@ -8,7 +8,7 @@ use Livewire\Component;
 
 class Orders extends Component
 {
-    public $new_orders = [], $received_orders = [], $processed_orders = [];
+    public $new_orders = [], $received_orders = [], $processed_orders = [], $play_sound = false;
 
     protected $listeners = ['orderAdded' => '$refresh'];
 
@@ -87,6 +87,6 @@ class Orders extends Component
         $this->setReceivedOrders();
         $this->setProcessedOrders();
 
-        return view('livewire.kitchen.orders')->layout('layouts.waitress');
+        return view('livewire.kitchen.orders');
     }
 }

@@ -7,8 +7,8 @@ use Livewire\WithPagination;
 trait LivewireUtil
 {
     use WithPagination;
-    public $modal_open = false, $fills = [], $rules = [], $Model, $search, $delete_modal = false, $is_using_modal = false;
-    public $model_id, $modal_title="Delete Item", $modal_item = 'item', $is_using_data_table = true;
+    public $modal_open = false, $fills = [], $Model, $search, $delete_modal = false;
+    public $model_id, $modal_title="Delete Item", $modal_item = 'item';
 
     public function openModal()
     {
@@ -74,7 +74,7 @@ trait LivewireUtil
 
     public function store()
     {
-        $this->validate($this->rules);
+        $this->validate();
 
         $data = [];
 
@@ -83,19 +83,12 @@ trait LivewireUtil
         }
 
         $this->Model->updateOrCreate(['id' => $this->model_id], $data);
+        $this->emitTo('shared.flash-message', 'message', 'success', $this->model_id ? 'Update Successful' : 'Record Created Successfully.');
 
-        session()->flash('message', $this->model_id ? 'Update Successful' : 'Record Created Successfully.');
+        $this->emit('refreshLivewireDatatable');
 
-        $this->reset($this->fills);
-
-        if ($this->is_using_modal) {
-            $this->closeModal();
-        }
-
-        if ($this->is_using_data_table) {
-            $this->emit('refreshLivewireDatatable');
-        }
-
+        $this->resetInputFields();
+        $this->closeModal();
     }
 
     private function generateSlug($value) {

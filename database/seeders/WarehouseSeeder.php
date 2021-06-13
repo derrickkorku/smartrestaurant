@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class WarehouseSeeder extends Seeder
 {
@@ -13,6 +14,11 @@ class WarehouseSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('warehouses')->delete();
+        DB::table('warehouses')->insert([
+            ['id' => 1, 'name' => 'Inside Plane'],
+            ['id' => 2, 'name' => 'Under Plane'],
+            ['id' => 3, 'name' => 'Main']
+        ]);
     }
 }

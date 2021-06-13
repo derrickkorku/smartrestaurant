@@ -1,13 +1,19 @@
 <div class="container-fluid card">
     <div class="card-body">
         <div class="row mb-4">
-            <div class="col-sm-4 mb-2 d-grid">
-                <button type="button" class="btn btn-danger btn-lg" wire:click="changeView('food')">View Food Menu</button>
-            </div><!-- end of col -->
-            <div class="col-sm-4 mb-2 d-grid">
-                <button type="button" class="btn btn-info btn-lg" wire:click="changeView('drink')">View Drinks Menu</button>
-            </div>
-            <div class="col-sm-4 mb-2 d-grid">
+            @if (Auth::user()->role == 'waiter' || Auth::user()->role == 'admin')
+                <div class="col-sm-6 mb-2 d-grid">
+                    <button type="button" class="btn btn-danger btn-lg" wire:click="changeView('food')">View Food Menu</button>
+                </div><!-- end of col -->
+            @endif
+
+            @if (Auth::user()->role == 'bar' || Auth::user()->role == 'admin')
+                <div class="col-sm-6 mb-2 d-grid">
+                    <button type="button" class="btn btn-info btn-lg" wire:click="changeView('drink')">View Drinks Menu</button>
+                </div>
+            @endif
+
+            <div class="col-sm-6 mb-2 d-grid">
                 <button type="button" class="btn btn-success btn-lg" wire:click="changeView('cart')">View Cart
                     (Cart({{ $cart_count }}))</button>
             </div>

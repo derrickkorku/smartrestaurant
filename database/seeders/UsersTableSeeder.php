@@ -17,10 +17,10 @@ class UsersTableSeeder extends Seeder
     {
         DB::table('users')->delete();
         DB::table('users')->insert([
-          ['id' => 1, 'name' => 'Admin', 'email' => 'admin@email.com', 'password' => Hash::make('admin123')],
-          ['id' => 2, 'name' => 'Waiter', 'email' => 'waiter@email.com', 'password' => Hash::make('waiter123')],
-          ['id' => 3, 'name' => 'Kitchen Staff', 'email' => 'kitchen@email.com', 'password' => Hash::make('kitchen123')],
-          ['id' => 4, 'name' => 'Bar Staff', 'email' => 'bar@email.com', 'password' => Hash::make('bar123')],
+          ['id' => 1, 'name' => 'Admin', 'role' => 'admin', 'email' => 'admin@email.com', 'password' => Hash::make('admin123')],
+          ['id' => 2, 'name' => 'Waiter', 'role' => 'waiter', 'email' => 'waiter@email.com', 'password' => Hash::make('waiter123')],
+          ['id' => 3, 'name' => 'Kitchen Staff', 'role' => 'kitchen', 'email' => 'kitchen@email.com', 'password' => Hash::make('kitchen123')],
+          ['id' => 4, 'name' => 'Bar Staff', 'role' => 'bar', 'email' => 'bar@email.com', 'password' => Hash::make('bar123')],
         ]);
     }
 

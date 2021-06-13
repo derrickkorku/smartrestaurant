@@ -17,6 +17,9 @@
 
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
+
+        <!-- Bootstrap CSS -->
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     </head>
     <body class="font-sans antialiased">
         <x-jet-banner />
@@ -38,6 +41,8 @@
                 {{ $slot }}
             </main>
         </div>
+
+        <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 
         @stack('modals')
 

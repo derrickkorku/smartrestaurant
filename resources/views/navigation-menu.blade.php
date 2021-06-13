@@ -10,11 +10,42 @@
                     </a>
                 </div>
 
-                <!-- Navigation Links -->
+                <!--  ANavigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-jet-nav-link>
+
+                    @if (Auth::user()->role == 'admin')
+                         <!-- Admin Routes -->
+                        <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                            {{ __('Dashboard') }}
+                        </x-jet-nav-link>
+                        <x-jet-nav-link href="{{ route('inventory') }}" :active="request()->routeIs('inventory')">
+                            {{ __('Inventory') }}
+                        </x-jet-nav-link>
+
+                        <x-jet-nav-link href="{{ route('waitress.menu') }}" :active="request()->routeIs('waitress.menu')">
+                            {{ __('Take Order') }}
+                        </x-jet-nav-link>
+
+                        <x-jet-nav-link href="{{ route('kitchen.orders') }}" :active="request()->routeIs('kitchen.orders')">
+                            {{ __('Orders') }}
+                        </x-jet-nav-link>
+
+                    @endif
+
+                    @if (Auth::user()->role == 'waiter' || Auth::user()->role == 'bar')
+                         <!-- Waitress Routes -->
+                        <x-jet-nav-link href="{{ route('waitress.menu') }}" :active="request()->routeIs('waitress.menu')">
+                            {{ __('Take Order') }}
+                        </x-jet-nav-link>
+                    @endif
+
+                    @if (Auth::user()->role == 'kitchen')
+                         <!-- Waitress Routes -->
+                        <x-jet-nav-link href="{{ route('kitchen.orders') }}" :active="request()->routeIs('kitchen.orders')">
+                            {{ __('Orders') }}
+                        </x-jet-nav-link>
+                    @endif
+
                 </div>
             </div>
 
