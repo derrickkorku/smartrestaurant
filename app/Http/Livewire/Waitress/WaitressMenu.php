@@ -6,6 +6,7 @@ use App\Models\MenuCategory;
 use App\Models\Inventory;
 use App\Models\Order;
 use App\Models\OrderDetails;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class WaitressMenu extends Component
@@ -86,7 +87,7 @@ class WaitressMenu extends Component
             ];
 
             if (! $order['attributes']['is_food']) {
-                $inventory = Inventory::whereMenuId($order['id'])->latest()->first();
+                $inventory = Inventory::whereMenuId($order['id'])->whereWarehouseId(Auth::user()->warehouse_id)->latest()->first();
                 $inventory->current_stock = $inventory->starting_stock - $order['quantity'];
                 $inventory->save();
             }
@@ -94,8 +95,6 @@ class WaitressMenu extends Component
         }
 
         OrderDetails::insert($order_details);
-
-        $this->emit('orderAdded');
 
         \Cart::clear();
         $this->setCartCount();
