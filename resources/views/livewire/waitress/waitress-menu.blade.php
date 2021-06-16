@@ -159,11 +159,11 @@
                                     </td>
                                     <td>
                                         <button class="btn btn-primary" type="button"
-                                            wire:click.defer="increaseItem({{ $order->id }})">(+)</button>
+                                            wire:click.defer="increaseItem({{ $order }})">(+)</button>
                                         <button class="btn btn-warning" type="button"
-                                            wire:click.defer="decreaseItem({{ $order->id }})">(-)</button>
+                                            wire:click.defer="decreaseItem({{ $order }})">(-)</button>
                                         <button class="btn btn-danger" type="button"
-                                            wire:click.defer="removeItem({{ $order->id }})">(X)</button>
+                                            wire:click.defer="removeItem({{ $order }})">(X)</button>
                                     </td>
                                 </tr>
                                 @empty

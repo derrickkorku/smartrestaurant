@@ -1,4 +1,4 @@
-<div class="container-fluid px-4" wire:poll.5000ms>
+<div class="container-fluid mt-4 px-4" wire:poll.5000ms>
     <div class="row">
         <div class="col-sm-3">
             <div class="card">
@@ -27,7 +27,7 @@
         <div class="col-sm-4">
             <div class="card">
                 <div class="card-header">
-                    Received
+                    Received Orders
                 </div>
                 <div class="card-body">
                     <table class="table">
@@ -86,7 +86,7 @@
         <div class="col-sm-4">
             <div class="card">
                 <div class="card-header">
-                    Processed Orders(10)
+                    Processed Orders
                 </div>
                 <div class="card-body">
                     <table class="table">

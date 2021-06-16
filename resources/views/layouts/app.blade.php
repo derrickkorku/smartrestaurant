@@ -45,7 +45,6 @@
         <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 
         @stack('modals')
-
         @livewireScripts
     </body>
 </html>
