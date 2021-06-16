@@ -34,7 +34,12 @@ class Orders extends Component
         foreach($orders as $order){
             $order_details = OrderDetails::belongsToOrder($order->id)->isFood()->get();
             if ($order_details && sizeof($order_details) > 0) {
-                $this->received_orders[] = $order_details;
+                $new_order = [
+                    'order' => $order,
+                    'order_details' => $order_details
+                ];
+
+                $this->received_orders[] = $new_order;
             }
         }
     }
@@ -62,7 +67,7 @@ class Orders extends Component
     }
 
     public function processOrder($order){
-        $order = Order::find($order[0]['order_id']);
+        $order = Order::find($order['id']);
         $order->status = 'processed';
         $order->save();
 
@@ -74,8 +79,8 @@ class Orders extends Component
 
 
     public function cancelOrder($order){
-        Order::find($order[0]['order_id'])->delete();
-        OrderDetails::whereOrderId($order[0]['order_id'])->delete();
+        Order::find($order['id'])->delete();
+        OrderDetails::whereOrderId($order['id'])->delete();
 
         $this->setReceivedOrders();
     }

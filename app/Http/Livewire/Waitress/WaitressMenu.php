@@ -76,7 +76,7 @@ class WaitressMenu extends Component
             'total' => $total = \Cart::getTotal(),
             'sub_total' => $order_tax * $total,
             'note' => $this->order_note,
-            'is_take_away' => $this->takeaway,
+            'is_take_away' => $this->takeaway ? true : false,
             'status' => 'new',
         ]);
 
@@ -90,6 +90,7 @@ class WaitressMenu extends Component
                 'quantity' => $order['quantity'],
                 'is_food' => $order['attributes']['is_food'],
                 'total' => $order['quantity'] * $order['price'],
+                'created_at' => now(),
             ];
 
             if (!$order['attributes']['is_food']) {
