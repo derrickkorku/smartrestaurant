@@ -25,4 +25,8 @@ class Order extends Model
         return $query->whereStatus('processed');
     }
 
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
 }

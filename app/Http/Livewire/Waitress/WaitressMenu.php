@@ -107,6 +107,9 @@ class WaitressMenu extends Component
         OrderDetails::insert($order_details);
 
         \Cart::clear();
+        $this->order_note = null;
+        $this->takeaway = false;
+        $this->taxable = false;
         $this->setCartCount();
     }
 

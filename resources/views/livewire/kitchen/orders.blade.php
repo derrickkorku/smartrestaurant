@@ -52,17 +52,21 @@
                                     <tfoot>
                                         <tr>
                                             <td colspan="3" class="text-center">
-                                                TakeAway: <strong>{{ $item['order']['is_take_away'] ? 'Yes' : 'No' }}</strong> | 
-                                                 Time: {{ $item['created_at']->diffForHumans() }}
+                                                <strong>TakeAway:</strong>
+                                                {{ $item['order']['is_take_away'] ? 'Yes' : 'No' }} |
+                                                <strong>Time:</strong> {{ $item['created_at']->diffForHumans() }} |
+                                                <strong>From:</strong>
+                                                {{ $item['order']['user']['warehouse']['name'] }}
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td colspan="3">Note: </td>
+                                            <td colspan="3"><strong>Note:</strong> {{ $item['order']['note'] }}</td>
                                         </tr>
                                         <tr>
                                             <td colspan="3" class="text-center">
                                                 <button class="btn btn-danger px-4"
-                                                    wire:click="cancelOrder({{ $order['order'] }})">Cancel Order</button>
+                                                    wire:click="cancelOrder({{ $order['order'] }})">Cancel
+                                                    Order</button>
                                                 <button class="btn btn-primary px-4"
                                                     wire:click="processOrder({{ $order['order'] }})">Process
                                                     Order</button>
@@ -103,7 +107,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($order as $index => $item)
+                                    @foreach ($order['order_details'] as $index => $item)
                                         <tr>
                                             <td>{{ $index + 1 }}</td>
                                             <td>{{ $item['title'] }}</td>
@@ -111,6 +115,19 @@
                                         </tr>
                                     @endforeach
                                 </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="3" class="text-center">
+                                            <strong>TakeAway:</strong>
+                                            {{ $item['order']['is_take_away'] ? 'Yes' : 'No' }} |
+                                            <strong>Time:</strong> {{ $item['created_at']->diffForHumans() }} |
+                                           <strong> From: </strong>{{ $item['order']['user']['warehouse']['name'] }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3"><strong>Note</strong> {{ $item['order']['note'] }}</td>
+                                    </tr>
+                                </tfoot>
                             </table>
                         @empty
                             <h4>No Processed Order Currently</h4>

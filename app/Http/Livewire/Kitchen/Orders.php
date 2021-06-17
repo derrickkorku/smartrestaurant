@@ -27,7 +27,7 @@ class Orders extends Component
     }
 
     private function setReceivedOrders(){
-        $orders = Order::receivedOrders()->get();
+        $orders = Order::receivedOrders()->with('user.warehouse')->get();
 
         $this->received_orders = [];
 
@@ -45,14 +45,18 @@ class Orders extends Component
     }
 
     private function setProcessedOrders(){
-        $orders = Order::processedOrders()->limit(10)->get();
+        $orders = Order::processedOrders()->with('user.warehouse')->latest()->limit(15)->get();
 
         $this->processed_orders = [];
 
         foreach($orders as $order){
             $order_details = OrderDetails::belongsToOrder($order->id)->isFood()->get();
             if ($order_details && sizeof($order_details) > 0) {
-                $this->processed_orders[] = $order_details;
+                $new_order = [
+                    'order' => $order,
+                    'order_details' => $order_details
+                ];
+                $this->processed_orders[] = $new_order;
             }
         }
     }
