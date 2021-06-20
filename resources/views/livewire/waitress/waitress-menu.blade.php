@@ -3,18 +3,18 @@
         <div class="row mb-4 justify-items-center mx-auto">
             @if (Auth::user()->role == 'waiter' || Auth::user()->role == 'admin')
                 <div class="col-sm-4 mb-2 d-grid">
-                    <button type="button" class="btn btn-danger btn-lg" wire:click="changeView('food')">View Food Menu</button>
+                    <button type="button" class="btn btn-success btn-lg" wire:click="changeView('food')">View Food Menu</button>
                 </div><!-- end of col -->
             @endif
 
             @if (Auth::user()->role == 'bar' || Auth::user()->role == 'admin')
                 <div class="col-sm-4 mb-2 d-grid">
-                    <button type="button" class="btn btn-info btn-lg" wire:click="changeView('drink')">View Drinks Menu</button>
+                    <button type="button" class="btn btn-warning btn-lg" wire:click="changeView('drink')">View Drinks Menu</button>
                 </div>
             @endif
 
             <div class="col-sm-4 mb-2 d-grid">
-                <button type="button" class="btn btn-success btn-lg" wire:click="changeView('cart')">View Cart
+                <button type="button" class="btn btn-info btn-lg" wire:click="changeView('cart')">View Cart
                     (Cart({{ $cart_count }}))</button>
             </div>
         </div><!-- end of row -->
