@@ -176,10 +176,31 @@ class MenusTableSeeder extends Seeder
             ['id' => $i++, 'name' => 'Savanah Dry', 'menu_category_id' => 19, 'price' => 20],
             ['id' => $i++, 'name' => 'Red Bull', 'menu_category_id' => 19, 'price' => 20],
 
-            ['id' => $i++, 'name' => 'Boiled Plantain', 'menu_category_id' => 9, 'price' => 0],
-            ['id' => $i++, 'name' => 'Boiled Yam', 'menu_category_id' => 9, 'price' => 0],
-            ['id' => $i++, 'name' => 'Fried Plantain', 'menu_category_id' => 9, 'price' => 0],
-            ['id' => $i++, 'name' => 'Fried Yam', 'menu_category_id' => 9, 'price' => 0],
+            ['id' => $i++, 'name' => 'Small Water', 'menu_category_id' => 20, 'price' => 5],
+            ['id' => $i++, 'name' => 'Big Water', 'menu_category_id' => 20, 'price' => 10],
+            ['id' => $i++, 'name' => 'Sparkling Water', 'menu_category_id' => 20, 'price' => 20],
+
+            ['id' => $i++, 'name' => 'Coke', 'menu_category_id' => 21, 'price' => 5],
+            ['id' => $i++, 'name' => 'Coke Lite', 'menu_category_id' => 21, 'price' => 5],
+            ['id' => $i++, 'name' => 'Fanta', 'menu_category_id' => 21, 'price' => 5],
+            ['id' => $i++, 'name' => 'Sprite', 'menu_category_id' => 21, 'price' => 5],
+            ['id' => $i++, 'name' => 'Tonic', 'menu_category_id' => 21, 'price' => 5],
+            ['id' => $i++, 'name' => 'Soda', 'menu_category_id' => 21, 'price' => 5],
+            ['id' => $i++, 'name' => 'Can Fanta', 'menu_category_id' => 21, 'price' => 6],
+            ['id' => $i++, 'name' => 'Can Sprite', 'menu_category_id' => 21, 'price' => 6],
+            ['id' => $i++, 'name' => 'Can Coke', 'menu_category_id' => 21, 'price' => 6],
+            ['id' => $i++, 'name' => 'Alvaro', 'menu_category_id' => 21, 'price' => 8],
+            ['id' => $i++, 'name' => 'Malt', 'menu_category_id' => 21, 'price' => 8],
+            ['id' => $i++, 'name' => 'Origin Zero', 'menu_category_id' => 21, 'price' => 8],
+
+            ['id' => $i++, 'name' => 'Freshly squeezed Pineapple Juice', 'menu_category_id' => 22, 'price' => 9],
+            ['id' => $i++, 'name' => 'Watermelon Juice', 'menu_category_id' => 22, 'price' => 9],
+
+            ['id' => $i++, 'name' => 'Cabernet Sauvignon', 'menu_category_id' => 23, 'price' => 70],
+            ['id' => $i++, 'name' => 'Merlot', 'menu_category_id' => 23, 'price' => 70],
+            ['id' => $i++, 'name' => 'Shiraz', 'menu_category_id' => 23, 'price' => 70],
+            ['id' => $i++, 'name' => 'Sauvignon', 'menu_category_id' => 23, 'price' => 70],
+            ['id' => $i++, 'name' => 'Wine Per Glass', 'menu_category_id' => 23, 'price' => 30],
         ]);
     }
 }

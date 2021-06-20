@@ -21,6 +21,8 @@ class UsersTableSeeder extends Seeder
           ['id' => 2, 'name' => 'Waiter S1', 'role' => 'waiter', 'email' => 'ws1@email.com', 'warehouse_id' => 1, 'password' => Hash::make('waiter123')],
           ['id' => 3, 'name' => 'Kitchen Staff', 'role' => 'kitchen', 'email' => 'kitchen@email.com', 'warehouse_id' => null, 'password' => Hash::make('kitchen123')],
           ['id' => 4, 'name' => 'Bar Staff S1', 'role' => 'bar', 'email' => 'bs1@email.com', 'warehouse_id' => 1, 'password' => Hash::make('bar123')],
+          ['id' => 5, 'name' => 'Waiter S2', 'role' => 'waiter', 'email' => 'ws2@email.com', 'warehouse_id' => 2, 'password' => Hash::make('waiter123')],
+          ['id' => 6, 'name' => 'Bar Staff S2', 'role' => 'bar', 'email' => 'bs2@email.com', 'warehouse_id' => 2, 'password' => Hash::make('bar123')],
         ]);
     }
 
