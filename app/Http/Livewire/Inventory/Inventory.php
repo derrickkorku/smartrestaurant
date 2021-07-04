@@ -12,15 +12,14 @@ class Inventory extends Component
 {
     use LivewireUtil;
 
-    public $warehouse_id, $menu_id, $starting_stock, $current_stock, $inventory_date, $description, $item_type, $menu_items, $warehouses;
+    public $warehouse_id, $menu_id, $starting_stock, $current_stock, $inventory_date, $item_type, $menu_items, $warehouses;
 
-    private $fillable = ['warehouse_id', 'menu_id', 'starting_stock', 'current_stock', 'description', 'item_type', 'inventory_date'];
+    private $fillable = ['warehouse_id', 'menu_id', 'starting_stock', 'current_stock', 'item_type', 'inventory_date'];
 
     protected $rules = [
         'warehouse_id' => 'integer|required|exists:warehouses,id',
         'menu_id' => 'integer|required|exists:menus,id',
         'starting_stock' => 'integer|required',
-        'description' => 'nullable|string',
         'item_type' => 'string|required|in:food,drink',
         'inventory_date' => 'date|required'
     ];
@@ -35,7 +34,9 @@ class Inventory extends Component
             $data["{$key}"] = $this->{$key};
         }
 
-        $this->current_stock = $this->starting_stock;
+        if (! $this->model_id){
+            $data['current_stock'] = $data['starting_stock'];
+        }
 
         $this->Model->updateOrCreate(['id' => $this->model_id], $data);
         $this->emitTo('shared.flash-message', 'message', 'success', $this->model_id ? 'Update Successful' : 'Record Created Successfully.');

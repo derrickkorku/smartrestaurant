@@ -30,7 +30,6 @@ class Inventory extends LivewireDatatable
             Column::name('menu.name')->label('Item')->filterable($this->items)->searchable(),
             Column::name('warehouse.name')->label('Warehouse')->filterable($this->warehouse)->searchable(),
             DateColumn::name('inventory_date')->filterable()->searchable(),
-            Column::name('description')->filterable()->searchable(),
             // Column::callback(['id'], function($id){
             //     return view('table-actions.datatable-actions', ['id' => $id]);
             // }),

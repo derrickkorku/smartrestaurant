@@ -40,7 +40,9 @@ class MenuCategoriesTableSeeder extends Seeder
             ['id' => 21, 'name'=>'Soft Drinks', 'type' =>'drink', 'is_side_dish' => false, 'is_main_dish' => false],
             ['id' => 22, 'name'=>'Juices', 'type' =>'drink', 'is_side_dish' => false, 'is_main_dish' => false],
             ['id' => 23, 'name'=>'Tall Horse Wine', 'type' =>'drink', 'is_side_dish' => false, 'is_main_dish' => false],
-            ['id' => 24, 'name'=>'Non Alcoholic Drinks', 'type' =>'drink', 'is_side_dish' => false, 'is_main_dish' => false]
+            ['id' => 24, 'name'=>'Non Alcoholic Drinks', 'type' =>'drink', 'is_side_dish' => false, 'is_main_dish' => false],
+
+            ['id' => 25, 'name'=>'Food Inventory', 'type' =>'food', 'is_side_dish' => false, 'is_main_dish' => false],
         ]);
     }
 }

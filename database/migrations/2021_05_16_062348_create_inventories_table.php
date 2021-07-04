@@ -20,7 +20,6 @@ class CreateInventoriesTable extends Migration
             $table->integer('starting_stock')->default(0)->nullable();
             $table->integer('current_stock')->default(0)->nullable();
             $table->enum('item_type', ['food', 'drink']);
-            $table->text('description');
             $table->date('inventory_date');
             $table->timestamps();
         });

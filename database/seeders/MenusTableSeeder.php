@@ -201,6 +201,16 @@ class MenusTableSeeder extends Seeder
             ['id' => $i++, 'name' => 'Shiraz', 'menu_category_id' => 23, 'price' => 70],
             ['id' => $i++, 'name' => 'Sauvignon', 'menu_category_id' => 23, 'price' => 70],
             ['id' => $i++, 'name' => 'Wine Per Glass', 'menu_category_id' => 23, 'price' => 30],
+
+            ['id' => $i++, 'name'=>'Chicken', 'menu_category_id' => 25, 'price' => 0],
+            ['id' => $i++, 'name'=>'Rice', 'menu_category_id' => 25, 'price' => 0],
+            ['id' => $i++, 'name'=>'Guinea Fowl', 'menu_category_id' => 25, 'price' => 0],
+            ['id' => $i++, 'name'=>'Acheke', 'menu_category_id' => 25, 'price' => 0],
+            ['id' => $i++, 'name'=>'Spaghetti', 'menu_category_id' => 25, 'price' => 0],
+            ['id' => $i++, 'name'=>'Corn Beef', 'menu_category_id' => 25, 'price' => 0],
+            ['id' => $i++, 'name'=>'French Fries', 'menu_category_id' => 25, 'price' => 0],
+            ['id' => $i++, 'name'=>'Meat Balls', 'menu_category_id' => 25, 'price' =>50],
+            ['id' => $i++, 'name'=>'Beef Steak', 'menu_category_id' => 25, 'price' =>50],
         ]);
     }
 }

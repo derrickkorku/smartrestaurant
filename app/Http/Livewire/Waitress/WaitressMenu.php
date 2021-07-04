@@ -97,7 +97,7 @@ class WaitressMenu extends Component
                 $inventory = Inventory::whereMenuId($order['attributes']['menu_id'])->whereWarehouseId(Auth::user()->warehouse_id)->latest()->first();
                 
                 if ($inventory) {
-                    $inventory->current_stock = $inventory->starting_stock - $order['quantity'];
+                    $inventory->current_stock = $inventory->current_stock - $order['quantity'];
                     $inventory->save();
                 }
             }
