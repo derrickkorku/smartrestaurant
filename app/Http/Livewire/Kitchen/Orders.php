@@ -96,10 +96,11 @@ class Orders extends Component
             $menu_titles = explode('+', $order_detail->title);
 
             for ($i = 0; $i < sizeof($menu_titles); $i++) {
+                $menu_titles[$i] = trim($menu_titles[$i]);
                 if (in_array($menu_titles[$i], ['A.1 Spring Roll', 'A.3 Chicken Wings(3pcs)'])) {
 
                     $menu = Menu::whereName($menu_titles[$i])->first();
-                    
+
                     $inventory = Inventory::where([
                         ['menu_id', '=', $menu->id],
                         ['warehouse_id', '=', 3],
@@ -111,7 +112,7 @@ class Orders extends Component
                         $inventory->save();
                     }
                 } else if (in_array($menu_titles[$i], [
-                    'A.2 Kelewele', 'A.5 Tuna Salad', 'A.6 Beef Salad',
+                    'A.2 Kelewele', 'A.5 Tuna Salad',
                     'D.1 Grilled Tilapia (Fresh Grrinded Pepper)', 'D.2 Okro Soup with Crab/Fish Beef/Goat', 'D.3 Okro Stew (Fish/Beef/Goat Meat)', 'D.4 Goat Soup', 'D.5 Palmnut Soup(Beef/Goat Meat/Fish)', 'D.6 Duck Groundnut', 'D.7 Red Red with Fish/Chicken/Beef', 'D.8 Palava Sauce(Fish/Chicken/Beef)', 'D.9 Garden Egg Stew (Fish/Chicken/Beef)', 'D.10 Yevugboma (Spinach Sauce) Fish/Beef/Goat Meat', 'D.11 Chicken Lite Soup(Layer)', 'D.12 Chicken Tilapia Soup',
                     'V.D.1 Local/Foreign Mushroom Saute with Vegetables', 'V.D.2 Vegetable Couscous (Jollof)', 'V.D.3 Garden Eggs Stew with Soya Chunck', 'V.D.4 Spaghetti In Vegetable Sauce', 'V.D.5 Agushi Palava Sauce', 'V.D.6 Veg Only',
                     'Beef Fillet Khebab', 'Chicken Khebab', 'Goat Khebab',
@@ -318,6 +319,46 @@ class Orders extends Component
 
                     $inventory = Inventory::where([
                         ['menu_id', '=', $ak_menu->id],
+                        ['warehouse_id', '=', 3],
+                        ['item_type', '=', 'food'],
+                    ])->latest()->first();
+
+                    if ($inventory) {
+                        $inventory->current_stock = $inventory->current_stock - $order_detail->quantity;
+                        $inventory->save();
+                    }
+                } else if (in_array($menu_titles[$i], ['Jollof Rice', 'Plain Rice', 'Fried Rice'])) {
+                    $f = Menu::whereName('Rice')->first();
+
+                    $inventory = Inventory::where([
+                        ['menu_id', '=', $f->id],
+                        ['warehouse_id', '=', 3],
+                        ['item_type', '=', 'food'],
+                    ])->latest()->first();
+
+                    if ($inventory) {
+                        $inventory->current_stock = $inventory->current_stock - $order_detail->quantity;
+                        $inventory->save();
+                    }
+
+                } else if ($menu_titles[$i] == 'Acheke') {
+                    $f = Menu::whereName('Acheke')->first();
+
+                    $inventory = Inventory::where([
+                        ['menu_id', '=', $f->id],
+                        ['warehouse_id', '=', 3],
+                        ['item_type', '=', 'food'],
+                    ])->latest()->first();
+
+                    if ($inventory) {
+                        $inventory->current_stock = $inventory->current_stock - $order_detail->quantity;
+                        $inventory->save();
+                    }
+                } else if(in_array($menu_titles[$i], ['B.6 Beef Sauce', 'A.6 Beef Salad'])) {
+                    $f = Menu::whereName('Shreded Beef')->first();
+
+                    $inventory = Inventory::where([
+                        ['menu_id', '=', $f->id],
                         ['warehouse_id', '=', 3],
                         ['item_type', '=', 'food'],
                     ])->latest()->first();

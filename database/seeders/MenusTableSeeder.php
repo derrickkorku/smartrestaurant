@@ -68,6 +68,7 @@ class MenusTableSeeder extends Seeder
             ['id' => $i++, 'name' => 'B.3 Steamed Tilapia', 'menu_category_id' => 7, 'price' => 70],
             ['id' => $i++, 'name' => 'B.4 Beef Steak', 'menu_category_id' => 7, 'price' => 65],
             ['id' => $i++, 'name' => 'B.5 Lamb Chops', 'menu_category_id' => 7, 'price' => 65],
+            ['id' => $i++, 'name' => 'B.6 Beef Sauce', 'menu_category_id' => 7, 'price' => 65],
             ['id' => $i++, 'name' => 'B.7 Guinea Fowl', 'menu_category_id' => 7, 'price' => 65],
             ['id' => $i++, 'name' => 'B.8 Boneless Duck in Veg. Sauce', 'menu_category_id' => 7, 'price' => 70], 
             ['id' => $i++, 'name' => 'B.9 Shredded Chicken in Veg. Sauce', 'menu_category_id' => 7, 'price' => 63],
@@ -89,6 +90,12 @@ class MenusTableSeeder extends Seeder
             ['id' => $i++, 'name' => 'French Fries', 'menu_category_id' => 9, 'price' => 0],
             ['id' => $i++, 'name' => 'Potato Saute', 'menu_category_id' => 9, 'price' => 0],
             ['id' => $i++, 'name' => 'Eworkple', 'menu_category_id' => 9, 'price' => 0],
+            ['id' => $i++, 'name' => 'Fried Yam', 'menu_category_id' => 9, 'price' => 0],
+            ['id' => $i++, 'name' => 'Fried Potato Saute', 'menu_category_id' => 9, 'price' => 0],
+            ['id' => $i++, 'name' => 'Fried Plantain', 'menu_category_id' => 9, 'price' => 0],
+            ['id' => $i++, 'name' => 'Boiled Yam', 'menu_category_id' => 9, 'price' => 0],
+            ['id' => $i++, 'name' => 'Boiled Potato Saute', 'menu_category_id' => 9, 'price' => 0],
+            ['id' => $i++, 'name' => 'Boiled Plantain', 'menu_category_id' => 9, 'price' => 0],
 
             ['id' => $i++, 'name' => "C.S latante's Chicken Sandwich", 'menu_category_id' => 10, 'price' => 30],
             ['id' => $i++, 'name' => 'T.S Tuna Sandwich', 'menu_category_id' => 10, 'price' => 30],
@@ -125,6 +132,7 @@ class MenusTableSeeder extends Seeder
             ['id' => $i++, 'name' => 'B.3 Steamed Tilapia', 'menu_category_id' => 10, 'price' => 40],
             ['id' => $i++, 'name' => 'B.4 Beef Stake', 'menu_category_id' => 10, 'price' => 40],
             ['id' => $i++, 'name' => 'B.5 Lamp Stake', 'menu_category_id' => 10, 'price' => 40],
+            ['id' => $i++, 'name' => 'B.6 Beef Sauce', 'menu_category_id' => 10, 'price' => 65],
             ['id' => $i++, 'name' => 'B.7 Guinea Fowl', 'menu_category_id' => 10, 'price' => 35],
 
             ['id' => $i++, 'name' => 'Black Label', 'menu_category_id' => 11, 'price' => 30],
@@ -211,6 +219,7 @@ class MenusTableSeeder extends Seeder
             ['id' => $i++, 'name'=>'French Fries', 'menu_category_id' => 25, 'price' => 0],
             ['id' => $i++, 'name'=>'Meat Balls', 'menu_category_id' => 25, 'price' =>50],
             ['id' => $i++, 'name'=>'Beef Steak', 'menu_category_id' => 25, 'price' =>50],
+            ['id' => $i++, 'name'=>'Shreded Beef', 'menu_category_id' => 25, 'price' =>0],
         ]);
     }
 }
