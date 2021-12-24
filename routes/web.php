@@ -1,10 +1,10 @@
 <?php
 
 use App\Http\Livewire\Admin\Account;
-use App\Http\Livewire\Admin\Sale;
 use App\Http\Livewire\Admin\Dashboard;
 use App\Http\Livewire\Admin\Menu;
 use App\Http\Livewire\Admin\MenuCategory;
+use App\Http\Livewire\Admin\SaleToday;
 use App\Http\Livewire\Inventory\Inventory;
 use App\Http\Livewire\Kitchen\Orders;
 use App\Http\Livewire\Waitress\WaitressMenu;
@@ -33,7 +33,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/admin/menu', Menu::class)->name('admin.menu');
     Route::get('/admin/account', Account::class)->name('admin.account');
     Route::get('/admin/inventory', Inventory::class)->name('inventory');
-    Route::get('/admin/sales', Sale::class)->name('sales');
+    Route::get('/admin/sales-today', SaleToday::class)->name('sales-today');
 
     Route::get('/w/menu', WaitressMenu::class)->name('waitress.menu');
     Route::get('/k/orders', Orders::class)->name('kitchen.orders');
