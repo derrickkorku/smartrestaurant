@@ -6,10 +6,11 @@ SmartRestaurant is a Laravel and Laravel-Livewire restaurant management system. 
  - kitchen and bar display of orders
  - order processing by kitchen staff and bar man
  - inventory/stock management of food items and drinks.
+ - Viewing Sales for the Day
 
 ## Deploying Smart Restaurant
 
-Deploy SmartRestaurant like the would deploy a typical laravel and livewire application. 
+Deploy SmartRestaurant like you would deploy a typical laravel and livewire application. 
 
 
 ## Contributing
