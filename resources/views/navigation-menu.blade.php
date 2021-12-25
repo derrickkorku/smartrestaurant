@@ -34,6 +34,10 @@
                             {{ __('Sales Today') }}
                         </x-jet-nav-link>
 
+                        <x-jet-nav-link href="{{ route('orders') }}" :active="request()->routeIs('orders')">
+                            {{ __('Orders') }}
+                        </x-jet-nav-link>
+
                     @endif
 
                     @if (Auth::user()->role == 'waiter' || Auth::user()->role == 'bar')
